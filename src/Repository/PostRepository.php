@@ -25,6 +25,15 @@ class PostRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findByTitle(string $title)
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.title LIKE :title')
+            ->setParameter('title', '%' . $title . '%')
+            ->getQuery()
+            ->getResult();
+    }
+
     //    /**
     //     * @return Post[] Returns an array of Post objects
     //     */

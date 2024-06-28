@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SearchController!{% endblock %}
+
+{% block body %}
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+            {{ form(form_search) }}
+        </div>
+    </div>
+    <div class="row">
+        {% for post in posts %}
+        <p>{{ post.title }}</p>
+        {% else %}
+        <p>Aucun résultat</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
